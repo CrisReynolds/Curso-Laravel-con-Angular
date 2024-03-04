@@ -1,0 +1,45 @@
+
+<h2 mat-dialog-title>{{texto}}</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="agregar">
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Placeholder" formControlName="nombre">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error *ngIf="nombre?.invalid">{{error_nombre()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Apellido</mat-label>
+    <input matInput placeholder="Placeholder" formControlName="apellido">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error>error</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>CI</mat-label>
+    <input matInput placeholder="1234567" formControlName="ci">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error>error</mat-error>
+  </mat-form-field>
+<!--
+  <mat-form-field appearance="fill">
+    <mat-label>Imagen</mat-label>
+    <input matInput placeholder="Placeholder" formControlName="imagen">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error>error</mat-error>
+  </mat-form-field> -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Correo</mat-label>
+    <input matInput placeholder="Placeholder" type="email" formControlName="email">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error *ngIf="email?.invalid">{{error_email()}}</mat-error>
+  </mat-form-field>
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-dialog-close class="btn btn-secondary">Cancelar</button>
+  <button [mat-dialog-close]="agregar" class="btn btn-primary" [disabled]="agregar.invalid">Guardar</button>
+</mat-dialog-actions>

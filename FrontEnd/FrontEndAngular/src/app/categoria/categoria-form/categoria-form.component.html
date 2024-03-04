@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{texto}}</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="agregar">
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo</mat-label>
+    <input matInput placeholder="Tipo" formControlName="tipo">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error *ngIf="tipo?.invalid">{{error_tipo()}}</mat-error>
+  </mat-form-field>
+
+<!--
+  <mat-form-field appearance="fill">
+    <mat-label>Imagen</mat-label>
+    <input matInput placeholder="Placeholder" formControlName="imagen">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error>error</mat-error>
+  </mat-form-field> -->
+
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-dialog-close class="btn btn-secondary">Cancelar</button>
+  <button [mat-dialog-close]="agregar" class="btn btn-primary" [disabled]="agregar.invalid">Guardar</button>
+</mat-dialog-actions>
+

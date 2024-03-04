@@ -1,0 +1,41 @@
+<hr>
+<h4>PRODUCTOS</h4>
+<hr>
+<button mat-button (click)="openDialog()" >Crear Producto</button>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Descripcion</th>
+          <th>Precio Compra</th>
+          <th>Precio Venta</th>
+          <th>Cantidad Minima</th>
+          <th>Stock</th>
+          <th>Imagen</th>
+          <th>Opcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of productos;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.descripcion}}</td>
+          <td>{{item.precio_compra}}</td>
+          <td>{{item.precio_venta}}</td>
+          <td>{{item.cantidad_minima}}</td>
+          <td>{{item.stock}}</td>
+          <td>
+            <img appImagenRota src="{{llenar_imagen(item.imagen)}}" height="50px" width="50px">
+          </td>
+          <td>
+            <button class="btn btn-sm btn-success" (click)="actualizar(item)"><mat-icon>refresh</mat-icon></button>
+            <button class="btn btn-sm btn-danger" (click)="eliminar(item)" ><mat-icon>delete_sweep</mat-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

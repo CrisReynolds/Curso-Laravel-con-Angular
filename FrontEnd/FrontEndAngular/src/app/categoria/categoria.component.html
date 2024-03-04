@@ -1,0 +1,29 @@
+<hr>
+<h4>CATEGORIAS</h4>
+<hr>
+<button mat-button (click)="openDialog()">Crear Categoria</button>
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Descripcion</th>
+          <th>Opcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of categorias;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.tipo}}</td>
+          <td>
+            <button class="btn btn-sm btn-success" (click)="actualizar(item)"><mat-icon>refresh</mat-icon></button>
+            <button class="btn btn-sm btn-danger" (click)="eliminar(item)"><mat-icon>delete_sweep</mat-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

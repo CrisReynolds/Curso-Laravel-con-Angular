@@ -1,0 +1,33 @@
+<hr>
+<h4>CLIENTES</h4>
+<hr>
+<button mat-button (click)="openDialog()">Crear Cliente</button>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Nombre Completo</th>
+          <th>Correo</th>
+          <th>CI</th>
+          <th>Opcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of clientes;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.nombre}} {{item.apellido}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.ci}}</td>
+          <td>
+            <button class="btn btn-sm btn-success" (click)="actualizar(item)"><mat-icon>refresh</mat-icon></button>
+            <button class="btn btn-sm btn-danger" (click)="eliminar(item)"><mat-icon>delete_sweep</mat-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
